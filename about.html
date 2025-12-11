@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — StudilyXR</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #000d1a, #00172d, #000d1a);
+      color: #e6eef8;
+    }
+    .fade-up { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(.2,.9,.2,1);}
+    .fade-up.show { opacity: 1; transform: translateY(0);}
+    .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; box-shadow: 0 8px 40px rgba(2,6,23,0.6);}
+    @keyframes pulseGlow {
+      0%,100% { transform: scale(1); opacity: 0.2; }
+      50% { transform: scale(1.1); opacity: 0.35; }
+    }
+    .glow-pulse { animation: pulseGlow 6s ease-in-out infinite; }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+
+  <!-- ===================== HEADER ===================== -->
+<header class="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-none px-6 py-4 flex justify-between items-center">
+  
+  <!-- LOGO -->
+  <a href="practice5.html">
+    <img src="assets/download1.png" class="w-16 md:w-20 scale-125 -translate-x-2" alt="StudilyXR Logo">
+  </a>
+
+  <!-- DESKTOP MENU -->
+  <nav class="hidden md:flex gap-4 bg-white/10 backdrop-blur-xl px-6 py-2 rounded-full border border-white/20 shadow-lg text-white">
+    <a href="index.html" class="px-4 py-2 rounded-full hover:bg-white/20 transition">Home</a>
+    <a href="about.html" class="px-4 py-2 rounded-full hover:bg-white/20 transition">About</a>
+    <a href="index.html#industries" class="px-4 py-2 rounded-full hover:bg-white/20 transition">Solutions</a>
+    <a href="index.html#videos" class="px-4 py-2 rounded-full hover:bg-white/20 transition">Our Work</a>
+    <a href="contact.html" class="px-4 py-2 rounded-full hover:bg-white/20 transition">Contact</a>
+  </nav>
+
+  <!-- RIGHT SIDE BUTTONS -->
+  <div class="flex items-center gap-4">
+    <a href="book-demo.html" class="hidden md:inline-block px-5 py-2 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#3BC2FF] text-black font-semibold">Book a Demo</a>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button id="mobileMenuBtn" class="md:hidden text-3xl text-white">☰</button>
+  </div>
+
+</header>
+
+
+
+<!-- ===================== MOBILE OVERLAY ===================== -->
+<div id="mobileOverlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden z-40"></div>
+
+
+
+<!-- ===================== MOBILE MENU ===================== -->
+<aside id="mobileMenu" class="fixed top-0 left-0 h-full w-4/5 max-w-sm bg-[#071023] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
+
+  <!-- TOP BAR -->
+  <div class="flex items-center justify-between p-6 border-b border-white/10">
+    <img src="assets/download1.webp" class="w-16" alt="Logo">
+    <button id="closeMenuBtn" class="text-3xl text-white">✕</button>
+  </div>
+
+  <!-- MENU LINKS -->
+  <nav class="px-6 mt-6 space-y-3 text-lg font-medium text-white">
+    <a href="practiceabt.html" class="block bg-[#0b1220] p-3 rounded">Home</a>
+    <a href="about.html" class="block bg-[#0b1220] p-3 rounded border border-[#0b7eff]">About</a>
+    <a href="practiceabt.html#industries" class="block bg-[#0b1220] p-3 rounded">Solutions</a>
+    <a href="practiceabt.html#videos" class="block bg-[#0b1220] p-3 rounded">Our Work</a>
+    <a href="contact.html" class="block bg-[#0b1220] p-3 rounded">Contact Us</a>
+
+    <a href="book-demo.html" class="block bg-gradient-to-r from-[#8B5CF6] to-[#3BC2FF] p-3 rounded text-center font-semibold mt-4">Book a Demo</a>
+  </nav>
+
+</aside>
+
+
+
+<!-- ===================== MOBILE MENU SCRIPT ===================== -->
+<script>
+  const mobileBtn = document.getElementById("mobileMenuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const overlay = document.getElementById("mobileOverlay");
+  const closeMenuBtn = document.getElementById("closeMenuBtn");
+
+  function openMenu() {
+    mobileMenu.classList.remove("-translate-x-full");
+    overlay.classList.remove("hidden");
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.add("-translate-x-full");
+    overlay.classList.add("hidden");
+  }
+
+  mobileBtn.addEventListener("click", openMenu);
+  closeMenuBtn.addEventListener("click", closeMenu);
+  overlay.addEventListener("click", closeMenu);
+</script>
+
+  <main class="pt-28">
+
+    <!-- HERO -->
+    <section class="relative w-full h-[420px] md:h-[480px] lg:h-[550px] overflow-hidden">
+  
+  <!-- Sharper Background Image -->
+  <img src="assets/arvr.jpg" 
+       alt="About Us Background" 
+       class="absolute inset-0 w-full h-full object-cover blur-[1px] contrast-110 brightness-80">
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <!-- Text Content -->
+  <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4
+              pt-20 md:pt-0"> 
+              <!-- pt-20 = pushes text down on mobile only -->
+    
+    <!-- Title -->
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-lg">
+      About Us
+    </h1>
+
+    <!-- Subtitle -->
+     <p class="mt-4 text-lg md:text-xl text-white font-medium drop-shadow-lg">
+      <b>Shaping the Future with Affordable AR & VR Innovation</b>
+    </p>
+
+  </div>
+</section>
+<!-- OUR STORY -->
+    <section class="holo-section relative py-24 px-6 bg-[#0a1222] overflow-hidden">
+
+  <!-- Soft gradient blobs -->
+  <div class="holo-blob top-0 right-0 bg-cyan-500/20"></div>
+  <div class="holo-blob bottom-0 left-0 bg-purple-500/20"></div>
+
+  <div class="max-w-5xl mx-auto relative z-10">
+    <div class="holo-card reveal">
+      <h2 class="text-center text-3xl md:text-4xl font-semibold mb-6">
+        <span class="bg-gradient-to-r from-[#B14EFF] to-[#3BC2FF] bg-clip-text text-transparent">
+          About the Company
+        </span>
+      </h2>
+
+      <p class="text-slate-300 leading-relaxed mb-5">
+        Studily XR is a pioneering immersive technology initiative by Studily Learning Technologies,
+        committed to transforming education and industry through Virtual Reality (VR) innovation.
+      </p>
+
+      <p class="text-slate-300 leading-relaxed mb-5">
+        We empower students and professionals to explore, interact, and understand complex concepts
+        through lifelike virtual environments — delivering measurable, scalable, and safe hands-on learning.
+      </p>
+    </div>
+  </div>
+
+  <div class="w-full h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent mt-16 opacity-50"></div>
+</section>
+
+<style>
+/* Background blobs */
+.holo-blob {
+  position: absolute;
+  width: 22rem;
+  height: 22rem;
+  border-radius: 999px;
+  filter: blur(100px);
+  opacity: 0.25;
+}
+
+/* Card Style */
+.holo-card {
+  position: relative;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 28px;
+  padding: 2.8rem;
+  backdrop-filter: blur(16px) saturate(120%);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+/* Holographic Sweep Highlight */
+.holo-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(59,194,255,0.18) 40%,
+    rgba(177,78,255,0.18) 60%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  animation: holoSweep 6s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes holoSweep {
+  0%   { left: -120%; }
+  50%  { left: 120%; }
+  100% { left: -120%; }
+}
+
+/* Scroll Fade-Up */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.9s cubic-bezier(.2,.9,.2,1);
+}
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+<script>
+// Reveal on scroll
+const reveals = document.querySelectorAll(".reveal");
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("show");
+  });
+}, { threshold: 0.25 });
+
+reveals.forEach(el => io.observe(el));
+</script>
+
+    <!-- MISSION & VISION -->
+    <!-- ========================= -->
+<!--   MISSION & VISION        -->
+<!-- ========================= -->
+
+<style>
+  /* Fade Up Animation */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  }
+
+  .fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Glass Card Background */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Hover Glow + Scale */
+  .card-hover:hover {
+    transform: translateY(-6px) scale(1.03);
+    border-color: #00d4ff;
+    box-shadow: 0 0 22px rgba(0, 212, 255, 0.4);
+  }
+
+  /* Neon Border Hover */
+  .card-hover:hover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 2px;
+    background: linear-gradient(135deg, #B14EFF, #3BC2FF, #00D4FF);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+  }
+
+  /* Image Glow Hover */
+  .card-hover img {
+    transition: 0.3s ease;
+  }
+
+  .card-hover:hover img {
+    filter: drop-shadow(0 0 6px #00d4ff);
+  }
+</style>
+
+
+
+<section id="mission-vision" class="py-20 bg-[#0b142a]">
+  <div class="max-w-6xl mx-auto text-center mb-12">
+    
+    <h2 class="text-center text-3xl md:text-4xl font-semibold mb-6">
+      <span class="bg-gradient-to-r from-[#B14EFF] to-[#3BC2FF] bg-clip-text text-transparent">
+        Our Mission & Vision
+      </span>
+    </h2>
+
+    <p class="text-gray-400 mt-4 fade-up">
+      Shaping the future of immersive learning with purpose and innovation.
+    </p>
+  </div>
+
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 px-6">
+
+    <!-- Mission -->
+    <div class="glass p-8 rounded-2xl card-hover fade-up text-center">
+      <img src="assets/mission.webp" alt="Mission" 
+           class="w-24 mx-auto mb-5">   <!-- bigger & centered -->
+      
+      <h3 class="text-2xl font-semibold mb-4 text-[#00d4ff] text-center">
+        Our Mission
+      </h3>
+
+      <p class="text-slate-300 leading-relaxed text-center">
+        To make immersive learning accessible, scalable, and impactful by empowering every student and
+        professional with world-class AR/VR/MR experiences across India and beyond.
+      </p>
+    </div>
+
+    <!-- Vision -->
+    <div class="glass p-8 rounded-2xl card-hover fade-up text-center">
+      <img src="assets/vision.webp" alt="Vision" 
+           class="w-24 mx-auto mb-5">   <!-- bigger & centered -->
+      
+      <h3 class="text-2xl font-semibold mb-4 text-[#00d4ff] text-center">
+        Our Vision
+      </h3>
+
+      <p class="text-slate-300 leading-relaxed text-center">
+        To become a global leader in immersive education and training by transforming how people learn,
+        practice, and master skills through future-ready virtual simulation technologies.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Fade-Up Scroll Reveal JS -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const fadeElements = document.querySelectorAll(".fade-up");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  fadeElements.forEach((el) => observer.observe(el));
+});
+</script>
+
+    <!-- CEO MESSAGE -->
+    <section class="py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="glass p-8 md:flex md:items-center md:gap-6 card-hover fade-up">
+
+      <!-- CEO IMAGE BIGGER -->
+      <div class="md:w-1/4 flex justify-center md:justify-start mb-4 md:mb-0">
+        <img src="assets/founder.jpeg"
+             alt="Kaivalya"
+             class="w-36 h-36 rounded-full object-cover border-2 border-white/10 hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_#00d4ff]">
+      </div>
+
+      <div class="md:w-3/4">
+        <h3 class="text-2xl font-semibold mb-2">Message from the Founder</h3>
+        <p class="text-slate-300 mb-3 italic">
+          "Experience is the most powerful teacher. Our goal is to democratize hands-on learning — anywhere, safely."
+        </p>
+
+        <p class="text-slate-300">
+          At StudilyXR, we combine pedagogy, realistic simulation and scalable technology to make skill-building
+          accessible and measurable. We partner with institutions and enterprises to deliver tailored learning
+          journeys that drive real outcomes.
+        </p>
+
+        <div class="mt-4 text-slate-400 font-medium">— Kaivalya Nagpure, Founder & CEO</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+   
+
+    <!-- TEAM -->
+    <!-- ================= TEAM SECTION ================= -->
+<section class="py-24 px-6">
+  <div class="text-center max-w-3xl mx-auto mb-16">
+    <h2 class="text-center text-3xl md:text-4xl font-semibold mb-6">
+    <span class="bg-gradient-to-r from-[#B14EFF] to-[#3BC2FF] bg-clip-text text-transparent">
+      Meet Our Team
+    </span>
+  </h2>
+    <p class="text-gray-400 mt-4 fade-up">Developers, designers, animators, and innovators behind StudilyXR.</p>
+  </div>
+
+  <div class="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+    <!-- Team Card -->
+    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center fade-up 
+                transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#00d4ff]/50 hover:bg-white/10">
+      <img src="assets/founder.jpeg" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover" alt="Kaivalya">
+      <h3 class="text-xl font-semibold">Kaivalya Nagpure</h3>
+      <p class="text-[#00d4ff] mb-2 transition duration-300 hover:text-[#3BC2FF] hover:drop-shadow-[0_0_10px_#00d4ff]">Founder & Director</p>
+      <p class="text-gray-400 text-sm">7+ yrs in immersive tech. Creator of India’s first Composite Skills Lab.</p>
+    </div>
+
+    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center fade-up 
+                transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#00d4ff]/50 hover:bg-white/10">
+      <img src="assets/chinmay.jpeg" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover" alt="Chinmay">
+      <h3 class="text-xl font-semibold">Chinmay</h3>
+      <p class="text-[#00d4ff] mb-2 transition duration-300 hover:text-[#3BC2FF] hover:drop-shadow-[0_0_10px_#00d4ff]">Project Manager</p>
+      <p class="text-gray-400 text-sm">Client coordination, delivery & quality assurance.</p>
+    </div>
+
+    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center fade-up 
+                transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#00d4ff]/50 hover:bg-white/10">
+      <img src="assets/ajay.jpeg" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover" alt="Ajay">
+      <h3 class="text-xl font-semibold">Ajay</h3>
+      <p class="text-[#00d4ff] mb-2 transition duration-300 hover:text-[#3BC2FF] hover:drop-shadow-[0_0_10px_#00d4ff]">Senior VR Developer</p>
+      <p class="text-gray-400 text-sm">Unity, Unreal, XR SDKs, Vision Pro. 6+ yrs experience.</p>
+    </div>
+
+    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center fade-up 
+     transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#00d4ff]/50 hover:bg-white/10">
+
+  <img src="assets/swati.jpeg" 
+       class="w-28 h-28 rounded-full mx-auto mb-4 object-cover object-top" 
+       alt="Swati">
+
+  <h3 class="text-xl font-semibold">Swati</h3>
+
+  <p class="text-[#00d4ff] mb-2 transition duration-300 hover:text-[#3BC2FF] hover:drop-shadow-[0_0_10px_#00d4ff]">
+    VR Developer
+  </p>
+
+  <p class="text-gray-400 text-sm">
+    XR Toolkit, Photon, WebXR, LMS integration.
+  </p>
+</div>
+
+
+    <!-- 3D Artists -->
+    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center fade-up 
+                transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#00d4ff]/50 hover:bg-white/10">
+      <img src="assets/harshal.jpeg" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover" alt="Harshal">
+      <h3 class="text-xl font-semibold">Harshal</h3>
+      <p class="text-[#00d4ff] mb-2 transition duration-300 hover:text-[#3BC2FF] hover:drop-shadow-[0_0_10px_#00d4ff]">3D Modeling Artist</p>
+      <p class="text-gray-400 text-sm">Blender, Maya, photorealistic environments.</p>
+    </div>
+
+    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center fade-up 
+     transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#00d4ff]/50 hover:bg-white/10">
+
+  <img src="assets/harshad.jpeg" 
+       class="w-28 h-28 rounded-full mx-auto mb-4 object-cover object-top" 
+       alt="Harshad">
+
+  <h3 class="text-xl font-semibold">Harshad</h3>
+
+  <p class="text-[#00d4ff] mb-2 transition duration-300 hover:text-[#3BC2FF] hover:drop-shadow-[0_0_10px_#00d4ff]">
+    3D Artist
+  </p>
+
+  <p class="text-gray-400 text-sm">
+    Modeling, texturing & optimization.
+  </p>
+</div>
+
+
+    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center fade-up 
+                transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#00d4ff]/50 hover:bg-white/10">
+      <img src="assets/pranav.jpg" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover" alt="Pranav">
+      <h3 class="text-xl font-semibold">Pranav</h3>
+      <p class="text-[#00d4ff] mb-2 transition duration-300 hover:text-[#3BC2FF] hover:drop-shadow-[0_0_10px_#00d4ff]">3D Artist</p>
+      <p class="text-gray-400 text-sm">Modeling, texturing & optimization.</p>
+    </div>
+
+    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center fade-up 
+     transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#00d4ff]/50 hover:bg-white/10">
+
+  <img src="assets/shruti.jpg" 
+       class="w-28 h-28 rounded-full mx-auto mb-4 object-cover object-top" 
+       alt="Shruti">
+
+  <h3 class="text-xl font-semibold">Shruti</h3>
+
+  <p class="text-[#00d4ff] mb-2 transition duration-300 hover:text-[#3BC2FF] hover:drop-shadow-[0_0_10px_#00d4ff]">
+    3D Artist
+  </p>
+
+  <p class="text-gray-400 text-sm">
+    Modeling, texturing & optimization.
+  </p>
+</div>
+
+
+    <!-- Animators -->
+    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center fade-up 
+     transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#00d4ff]/50 hover:bg-white/10">
+
+  <!-- Circle frame showing only head & face -->
+  <div class="w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden bg-black/10">
+  <img src="assets/vishal.jpeg"
+       class="w-full h-full object-contain object-top scale-110"
+       alt="Vishal">
+</div>
+
+  <h3 class="text-xl font-semibold text-white">Vishal</h3>
+
+  <p class="text-[#00d4ff] mb-2 transition duration-300 hover:text-[#3BC2FF] hover:drop-shadow-[0_0_10px_#00d4ff]">
+    Animator
+  </p>
+
+  <p class="text-gray-400 text-sm">
+    Rigging, mocap, character animation.
+  </p>
+</div>
+
+    <!-- UI/UX + Graphic -->
+    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center fade-up 
+     transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#00d4ff]/50 hover:bg-white/10">
+
+  <img src="assets/pratuu.webp" 
+       class="w-28 h-28 rounded-full mx-auto mb-4 object-cover object-top" 
+       alt="Pratiksha">
+
+  <h3 class="text-xl font-semibold">Pratiksha</h3>
+
+  <p class="text-[#00d4ff] mb-2 transition duration-300 hover:text-[#3BC2FF] hover:drop-shadow-[0_0_10px_#00d4ff]">
+    UI/UX Designer
+  </p>
+
+  <p class="text-gray-400 text-sm">
+    Interface design & immersive learning workflows.
+  </p>
+</div>
+
+
+   
+
+    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center fade-up 
+                transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:border-[#00d4ff]/50 hover:bg-white/10">
+      <img src="assets/priti.jpg" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover" alt="Priti">
+      <h3 class="text-xl font-semibold">Priti</h3>
+      <p class="text-[#00d4ff] mb-2 transition duration-300 hover:text-[#3BC2FF] hover:drop-shadow-[0_0_10px_#00d4ff]">Graphic Designer</p>
+      <p class="text-gray-400 text-sm">Branding, UI graphics & digital creative assets.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= BOOK DEMO CALL-TO-ACTION ================= -->
+<section class="w-full bg-[#0C1A4B] py-20">
+  <div class="max-w-4xl mx-auto text-center px-6">
+
+    <h2 class="text-2xl md:text-4xl font-semibold text-white mb-10">
+      Are you ready to bring Studily XR to your institution?
+    </h2>
+
+    <a href="book-demo.html">
+      <button class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold 
+                     px-10 py-4 rounded-full text-lg transition duration-300 shadow-lg">
+        Book your demo
+      </button>
+    </a>
+
+  </div>
+</section>
+  
+
+
+    
+    <!-- FOOTER -->
+    <footer class="w-full bg-[#080D23] border-t border-white/10 pt-14 pb-10 px-6 md:px-12 lg:px-20 text-white">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
+        <div>
+          <h2 class="text-3xl font-bold bg-gradient-to-r from-[#8B5CF6] to-[#3BC2FF] text-transparent bg-clip-text">STUDILY</h2>
+          <p class="text-gray-400 mt-4 leading-relaxed">Most affordable AR/VR service providers for educational & industrial solutions.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#" class="hover:text-[#8B5CF6] transition">Home</a></li>
+            <li><a href="#" class="hover:text-[#8B5CF6] transition">About</a></li>
+            <li><a href="#" class="hover:text-[#8B5CF6] transition">Services</a></li>
+            <li><a href="#" class="hover:text-[#8B5CF6] transition">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li>Email: studily.xyz@gmail.com</li>
+            <li>Phone: +918805551122</li>
+            <li>Location: 111, 1st floor, The Business Hub, Happy Colony, Kothrud, Pune - 411058</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+          <div class="flex justify-center md:justify-start gap-4 items-center">
+            <a href="https://www.linkedin.com/company/studily-learning-technologies-india/people/" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#3BC2FF] hover:scale-110 transition">
+              <img src="assets/linkedin-white-icon-12.jpg" class="w-7">
+            </a>
+            <a href="https://www.instagram.com/studily_learning/" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#3BC2FF] hover:scale-110 transition">
+              <img src="assets/insta.png" class="w-5">
+            </a>
+            <a href="https://wa.me/91YOUR_NUMBER?text=Hi%20I%20want%20to%20know%20more%20about%20STUDILY" target="_blank" class="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#3BC2FF] hover:scale-110 transition">
+              <img src="assets/wp.png" class="w-5">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center text-gray-500 mt-10 text-sm">© 2025 STUDILY. All Rights Reserved.</div>
+    </footer>
+
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile menu
+    const mobileBtn = document.getElementById("mobileMenuBtn");
+    const closeBtn = document.getElementById("closeMenuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileOverlay = document.getElementById("mobileOverlay");
+
+    mobileBtn.addEventListener("click", () => {
+      mobileMenu.classList.add("translate-x-0");
+      mobileOverlay.classList.remove("hidden");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      mobileMenu.classList.remove("translate-x-0");
+      mobileOverlay.classList.add("hidden");
+    });
+
+    mobileOverlay.addEventListener("click", () => {
+      mobileMenu.classList.remove("translate-x-0");
+      mobileOverlay.classList.add("hidden");
+    });
+
+    // Fade-up observer
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
