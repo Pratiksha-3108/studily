@@ -1,0 +1,1677 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Studily — AR / VR</title>
+  <meta name="description" content="Studily XR — Affordable AR/VR solutions for industries, education, and enterprise. Explore VR labs, AR training, and immersive simulation services.">
+
+  <!-- Preload Hero Image (LCP fix) -->
+  <link rel="preload" as="image" href="assets/vr.webp">
+
+  <!-- Google Font with display=swap (prevents text delay) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN optimized -->
+  <script>
+    tailwind = { config: { theme: { extend: {} } } };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root{
+      --grad-a: #060B18;
+      --grad-b: #0B1130;
+      --grad-c: #031E2C;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0; padding: 0;
+      overflow-x: hidden;
+      background-color: var(--grad-a); /* Fallback for slow loading */
+    }
+
+    /* Optimized Background */
+    .page-bg {
+      background:
+        radial-gradient(900px 600px at 12% 8%, rgba(133,93,255,0.18), transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(0,212,255,0.15), transparent 60%),
+        radial-gradient(650px 380px at 15% 90%, rgba(0,255,240,0.10), transparent 70%),
+        linear-gradient(180deg, var(--grad-a) 0%, var(--grad-b) 50%, var(--grad-c) 100%);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    section { padding: 10px; margin: 0; }
+    /* Scroll reveal effect for sections, images, and animate-up elements */
+body section,
+body .animate-up {
+  opacity: 0;
+  transform: translateY(30px); /* start slightly below */
+  transition: all 0.6s ease-out;
+}
+
+body section.visible,
+body .animate-up.visible {
+  opacity: 1;
+  transform: translateY(0); /* move to normal position */
+}
+
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7QBTK9XBQF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7QBTK9XBQF');
+</script>
+
+</head>
+<body class="page-bg text-white">
+
+<!-- ================= NAVBAR ================= -->
+<header id="siteHeader" class="fixed top-0 left-0 w-full z-50 bg-transparent transition">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
+    <img src="assets/download1.webp" loading="lazy" alt="Studily Logo"
+         class="w-16 md:w-20 translate-y-2 scale-[1.15] origin-left" />
+
+    <nav class="hidden md:flex items-center gap-5 bg-white/5 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 shadow">
+      <a href="index.html" class="px-4 py-2 rounded-full hover:bg-white/10">Home</a>
+      <a href="about.html" class="px-4 py-2 rounded-full hover:bg-white/10">About</a>
+      <a href="#industries" class="px-4 py-2 rounded-full hover:bg-white/10">Solutions</a>
+      <a href="#videos" class="px-4 py-2 rounded-full hover:bg-white/10">Our Work</a>
+      <a href="contact.html" class="px-4 py-2 rounded-full hover:bg-white/10">Contact Us</a>
+      <a href="blog.html" class="px-4 py-2 rounded-full hover:bg-white/10">Blog</a>
+    </nav>
+
+    <button id="mobileMenuBtn" class="md:hidden text-3xl text-white">☰</button>
+    <a href="book-demo.html" class="hidden md:block px-5 py-2 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#3BC2FF] text-black font-semibold">
+      Book a Demo
+    </a>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden"></div>
+  <div id="mobileMenu" class="fixed top-0 left-0 w-4/5 sm:w-2/5 h-full bg-[#0A0F1C] text-white z-[999] -translate-x-full transition-transform duration-300">
+    <div class="flex items-center justify-between px-6 h-20 border-b border-white/10">
+      <img src="assets/download1.webp" class="w-14" loading="lazy" alt="Logo" />
+      <button id="closeMenuBtn" class="text-2xl font-semibold">✕</button>
+    </div>
+    <nav class="px-6 mt-6 space-y-4 text-lg font-medium">
+      <a href="index.html" class="block bg-[#101827] p-3 rounded">Home</a>
+      <a href="about.html" class="block bg-[#101827] p-3 rounded">About</a>
+      <a href="#industries" class="block bg-[#101827] p-3 rounded">Solutions</a>
+      <a href="#videos" class="block bg-[#101827] p-3 rounded">Our Work</a>
+      <a href="contact.html" class="block bg-[#101827] p-3 rounded">Contact Us</a>
+       <a href="blog.html" class="block bg-[#101827] p-3 rounded">Blog</a>
+      
+      <a href="book-demo.html" class="block bg-gradient-to-r from-[#8B5CF6] to-[#3BC2FF] text-black p-3 rounded text-center font-semibold mt-4">
+        Book a Demo
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile Menu Script -->
+<script>
+  const mobileBtn = document.getElementById("mobileMenuBtn");
+  const closeBtn = document.getElementById("closeMenuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const mobileOverlay = document.getElementById("mobileOverlay");
+
+  const toggleMenu = (show) => {
+    mobileMenu.classList.toggle("-translate-x-full", !show);
+    mobileOverlay.classList.toggle("hidden", !show);
+  }
+
+  mobileBtn.onclick = () => toggleMenu(true);
+  closeBtn.onclick = () => toggleMenu(false);
+  mobileOverlay.onclick = () => toggleMenu(false);
+</script>
+
+<!-- ================= HERO SECTION ================= -->
+<!-- ================= HERO SECTION (FIXED FULL WIDTH) ================= -->
+<!-- ================= HERO SECTION (MOBILE OPTIMIZED) ================= -->
+<section class="w-full px-4 sm:px-6 pt-28 md:pt-20 pb-0 relative overflow-visible">
+
+  <!-- SOCIAL BAR - Hidden on Mobile -->
+  <!-- SOCIAL BAR - Visible on All Devices -->
+<div class="fixed left-0 top-80 md:top-1/2 md:-translate-y-1/2 z-20">
+  <div class="w-6 py-3 sm:w-9 sm:py-4 rounded-r-2xl
+              bg-gradient-to-b from-[#8B5CF6]/90 via-[#7B5BFF]/85 to-[#3BC2FF]/90
+              backdrop-blur-xl border border-white/20 shadow-xl
+              flex flex-col items-center gap-3 sm:gap-5">
+
+    <a href="https://wa.me/918805551122?text=Hi%20I%20am%20interested%20in%20STUDILY" target="_blank">
+      <img src="assets/whatp-removebg-preview.webp" 
+           alt="WhatsApp" 
+           class="w-4 sm:w-5 opacity-90 hover:opacity-100 transition">
+    </a>
+
+    <a href="https://www.youtube.com/@studily3307" target="_blank">
+      <img src="assets/you.webp" 
+           alt="YouTube" 
+           class="w-5 sm:w-6 opacity-90 hover:opacity-100 transition">
+    </a>
+
+    <a href="https://www.instagram.com/studily_learning/" target="_blank">
+      <img src="assets/insta.webp" 
+           alt="Instagram" 
+           class="w-6 sm:w-6 opacity-90 hover:opacity-100 transition">
+    </a>
+
+    <a href="https://www.linkedin.com/company/studily-learning-technologies-india/people/" target="_blank">
+      <img src="assets/linkedin-white-icon-12.webp" 
+           alt="LinkedIn" 
+           class="w-9 sm:w-8 opacity-90 hover:opacity-100 transition">
+    </a>
+
+  </div>
+</div>
+
+
+  <!-- MAIN CONTENT -->
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+
+    <!-- TEXT CONTENT -->
+    <div class="w-full md:w-[55%] text-center md:text-left px-2 md:pl-10 md:-mt-10">
+
+      <h1 class="font-extrabold tracking-tight 
+                 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+
+        <!-- MOBILE FRIENDLY FONT SIZES -->
+        <span class="block text-[32px] xs:text-[38px] sm:text-[45px] md:text-[53px] leading-tight">
+          Most Affordable AR/VR
+        </span>
+
+        <span class="block text-[34px] xs:text-[40px] sm:text-[47px] md:text-[55px] mt-1 leading-tight">
+          Service Providers
+        </span>
+      </h1>
+
+      <!-- LINE -->
+      <div class="mt-5 mb-6 w-40 sm:w-56 md:w-72 h-[3px] mx-auto md:mx-0 
+                  bg-gradient-to-r from-purple-400 to-blue-400"></div>
+
+      <p class="text-base sm:text-lg md:text-xl text-white/85 font-semibold max-w-md md:max-w-lg leading-relaxed mx-auto md:mx-0">
+        Discover How AR & VR Solution can elevate your Business
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 mt-7">
+        <a href="book-demo.html">
+          <button class="px-6 py-3 rounded-full bg-gradient-to-r from-[#8B5CF6] to-[#3BC2FF] 
+                         text-black font-semibold w-full sm:w-auto">
+            Book a Demo
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <!-- HERO IMAGE -->
+   <!-- HERO IMAGE BIG ON LAPTOP/Desktop -->
+<div class="w-full md:w-[60%] lg:w-[65%] xl:w-[70%]
+            flex justify-center md:justify-end 
+            mt-4 sm:mt-6 md:mt-0 relative overflow-visible">
+
+  <img src="assets/vr.webp"
+    loading="lazy"
+    decoding="async"
+    class="
+      /* MOBILE SIZE */
+      w-[340px] xs:w-[380px] sm:w-[450px]
+
+      /* LAPTOP + DESKTOP SIZE */
+      md:w-full lg:w-full xl:w-full 2xl:w-full
+
+      h-auto object-contain
+      drop-shadow-[0_20px_80px_rgba(0,200,255,0.20)]
+
+      /* MOBILE UP SHIFT */
+      relative -mt-6 sm:-mt-8 md:mt-0
+
+      /* RIGHT OFFSET FOR BIG SCREENS */
+      right-0 md:right-[-40px] lg:right-[-70px] xl:right-[-100px]"
+  />
+</div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CLIENT SECTION ================= -->
+<section class="w-full bg-[#071326] -mt-12 md:-mt-16">
+
+  <h2 class="text-center text-3xl md:text-4xl font-semibold mb-6">
+    <span class="bg-gradient-to-r from-[#B14EFF] to-[#3BC2FF] bg-clip-text text-transparent">
+      The Clients Who Trust Us
+    </span>
+  </h2>
+
+  <div class="mx-auto mt-3 mb-10 w-40 h-[2px] bg-gradient-to-r from-[#8B5CF6] to-[#3BC2FF]"></div>
+
+  <div class="slider-container">
+    <div class="slider-track">
+
+      <!-- 12 LOGOS (Optimized lazy + async decode) -->
+      <img loading="lazy" decoding="async" src="assets/client1.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client2.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client3.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client4.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client5.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client6.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client7.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client8.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client9.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client10.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client11.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client12.webp" class="clientLogo" />
+
+      <!-- DUPLICATE FOR INFINITE SCROLL -->
+      <img loading="lazy" decoding="async" src="assets/client1.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client2.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client3.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client4.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client5.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client6.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client7.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client8.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client9.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client10.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client11.webp" class="clientLogo" />
+      <img loading="lazy" decoding="async" src="assets/client12.webp" class="clientLogo" />
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* Outer Area */
+.slider-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* TRACK (Smooth animation with GPU acceleration) */
+.slider-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  animation: scroll 18s linear infinite;
+  will-change: transform;     /* GPU BOOST */
+  backface-visibility: hidden;
+}
+
+/* LOGO STYLE (same as yours, optimized) */
+.clientLogo {
+  min-width: 150px;
+  width: auto;
+  height: 140px;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: opacity 0.3s;
+  will-change: opacity;        /* Smooth hover */
+}
+
+/* Hover Effect */
+.clientLogo:hover {
+  opacity: 1;
+}
+
+/* Animation */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .slider-track { gap: 30px; }
+  .clientLogo {
+    min-width: 120px;
+    height: 100px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .slider-track { gap: 20px; }
+  .clientLogo {
+    min-width: 100px;
+    height: 80px;
+  }
+}
+</style>
+
+<!-- WHY AR/VR -->
+<!-- ================= WHY AR/VR ================= -->
+<section class="w-full bg-[#0A0F26] text-white py-18 px-4 sm:px-6">
+
+  <!-- CENTERED HEADING SECTION -->
+  <div class="flex flex-col items-center justify-center mb-14">
+    <h2 class="text-3xl md:text-4xl font-semibold text-center">
+      <span class="bg-gradient-to-r from-[#B14EFF] to-[#3BC2FF] bg-clip-text text-transparent">
+        Why AR/VR Simulations is the Future?
+      </span>
+    </h2>
+    <div class="mt-3 w-40 h-[2px] bg-gradient-to-r from-[#8B5CF6] to-[#3BC2FF]"></div>
+  </div>
+
+  <!-- CONTENT SECTION -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:ml-36">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+      <!-- LEFT BOXES (STATIC NOW — NO LAG) -->
+      <div class="grid grid-cols-2 gap-4 sm:gap-6">
+
+        <!-- BOX 1 -->
+        <div class="w-full h-[160px] sm:h-[180px] md:h-[200px] p-4 sm:p-6 text-center flex flex-col items-center 
+             justify-center bg-white/10 rounded-[28px] border border-white/20 shadow-lg hover:scale-[1.03] 
+             transition-transform duration-300">
+          <img src="assets/why1.webp" loading="lazy" decoding="async"
+            class="h-14 sm:h-20 md:h-24 object-contain mb-3 sm:mb-4"
+            alt="Safe and risk-free AR VR training simulation icon" />
+          <p class="text-white text-sm sm:text-lg leading-tight">Safe & Risk Free</p>
+        </div>
+
+        <!-- BOX 2 -->
+        <div class="w-full h-[160px] sm:h-[180px] md:h-[200px] p-4 sm:p-6 text-center flex flex-col items-center 
+             justify-center bg-white/10 rounded-[28px] border border-white/20 shadow-lg hover:scale-[1.03] 
+             transition-transform duration-300">
+          <img src="assets/why2.webp" loading="lazy" decoding="async"
+            class="h-14 sm:h-20 md:h-24 object-contain mb-3 sm:mb-4"
+            alt="Cost efficient AR VR simulation icon" />
+          <p class="text-white text-sm sm:text-lg leading-tight">Cost Efficient</p>
+        </div>
+
+        <!-- BOX 3 -->
+        <div class="w-full h-[160px] sm:h-[180px] md:h-[200px] p-4 sm:p-6 text-center flex flex-col items-center 
+             justify-center bg-white/10 rounded-[28px] border border-white/20 shadow-lg hover:scale-[1.03] 
+             transition-transform duration-300">
+          <img src="assets/why3.webp" loading="lazy" decoding="async"
+            class="h-14 sm:h-20 md:h-24 object-contain mb-3 sm:mb-4"
+            alt="No physical equipment needed for AR VR training icon" />
+          <p class="text-white text-sm sm:text-lg leading-tight">No Physical Equipment</p>
+        </div>
+
+        <!-- BOX 4 -->
+        <div class="w-full h-[160px] sm:h-[180px] md:h-[200px] p-4 sm:p-6 text-center flex flex-col items-center 
+             justify-center bg-white/10 rounded-[28px] border border-white/20 shadow-lg hover:scale-[1.03] 
+             transition-transform duration-300">
+          <img src="assets/why4.webp" loading="lazy" decoding="async"
+            class="h-14 sm:h-20 md:h-24 object-contain mb-3 sm:mb-4"
+            alt="Hands-on learning AR VR simulation icon" />
+          <p class="text-white text-sm sm:text-lg leading-tight">Hands-on Learning</p>
+        </div>
+
+      </div>
+
+      <!-- RIGHT STATS -->
+      <div class="flex flex-col gap-12 mt-[-30px] md:ml-0 lg:ml-2">
+
+        <!-- STAT 1 -->
+        <div class="flex items-center gap-6">
+          <img src="assets/40p.webp" class="w-24 sm:w-28 md:w-32" loading="lazy" decoding="async"
+               alt="40 to 50 percent reduction in training time icon" />
+          <div>
+            <p class="text-3xl sm:text-4xl md:text-5xl font-bold">40–50%</p>
+            <p class="text-base sm:text-lg opacity-80 mt-1">reduction in training time</p>
+          </div>
+        </div>
+
+        <!-- STAT 2 -->
+        <div class="flex items-center gap-6">
+          <img src="assets/70.webp" class="w-24 sm:w-28 md:w-32" loading="lazy" decoding="async"
+               alt="75 to 80 percent increase in knowledge retention icon" />
+          <div>
+            <p class="text-3xl sm:text-4xl md:text-5xl font-bold">75–80%</p>
+            <p class="text-base sm:text-lg opacity-80 mt-1">Boost in knowledge retention</p>
+          </div>
+        </div>
+
+        <!-- LAST POINT -->
+        <div class="flex items-center gap-6">
+          <img src="assets/train.webp" class="w-24 sm:w-28 md:w-32" loading="lazy" decoding="async"
+               alt="AR VR emergency muscle memory training icon" />
+          <p class="text-base sm:text-lg opacity-80 leading-7">
+            Trains muscle memory for immediate<br>response in emergency situations
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ======================= WHY CHOOSE STUDILY XR ======================= -->
+<!-- ================= WHY CHOOSE STUDILY XR ================= -->
+<section class="w-full bg-[#080C1F] text-white py-20 px-4 sm:px-6 md:px-10 font-[Poppins] overflow-x-hidden">
+
+  <!-- TITLE -->
+  <h2 class="text-center text-3xl md:text-4xl font-semibold mb-14">
+    <span class="bg-gradient-to-r from-[#B14EFF] to-[#3BC2FF] bg-clip-text text-transparent">
+      Why Choose Studily XR
+    </span>
+  </h2>
+
+  <!-- GRID -->
+  <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-12 text-center">
+
+    <!-- ITEM 1 -->
+    <div class="flex flex-col items-center">
+      <img src="assets/200.webp" 
+           class="w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 object-contain mb-4"
+           loading="lazy" decoding="async"
+           alt="Studily XR total completed projects icon" />
+
+      <p data-count="200"
+         class="count-num text-3xl sm:text-4xl md:text-5xl font-extrabold 
+                bg-gradient-to-r from-[#B14EFF] to-[#3BC2FF]
+                bg-clip-text text-transparent leading-none">
+        0+
+      </p>
+
+      <p class="text-[15px] sm:text-[16px] opacity-90 mt-2">Projects</p>
+    </div>
+
+    <!-- ITEM 2 -->
+    <div class="flex flex-col items-center">
+      <img src="assets/500.webp" 
+           class="w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 object-contain mb-4"
+           loading="lazy" decoding="async"
+           alt="Studily XR total hours of AR VR content icon" />
+
+      <p data-count="500"
+         class="count-num text-3xl sm:text-4xl md:text-5xl font-extrabold 
+                bg-gradient-to-r from-[#B14EFF] to-[#3BC2FF]
+                bg-clip-text text-transparent leading-none">
+        0+
+      </p>
+
+      <p class="text-[15px] sm:text-[16px] opacity-90 mt-2">Hours of Content</p>
+    </div>
+
+    <!-- ITEM 3 -->
+    <div class="flex flex-col items-center col-span-2 md:col-span-1 mx-auto">
+      <img src="assets/100.webp" 
+           class="w-24 h-24 sm:w-32 sm:h-32 md:w-44 md:h-44 object-contain mb-4"
+           loading="lazy" decoding="async"
+           alt="Studily XR total client count icon" />
+
+      <p data-count="100"
+         class="count-num text-3xl sm:text-4xl md:text-5xl font-extrabold 
+                bg-gradient-to-r from-[#B14EFF] to-[#3BC2FF]
+                bg-clip-text text-transparent leading-none">
+        0+
+      </p>
+
+      <p class="text-[15px] sm:text-[16px] opacity-90 mt-2">Clients</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= OPTIMIZED COUNT-UP ================= -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll(".count-num");
+
+  const animate = (el) => {
+    const target = +el.dataset.count;
+    const duration = 1200;
+    const start = performance.now();
+
+    function update(ts) {
+      const progress = Math.min((ts - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // cubic ease-out
+      el.textContent = Math.floor(eased * target) + "+";
+
+      if (progress < 1) requestAnimationFrame(update);
+      else el.textContent = target + "+";
+    }
+
+    requestAnimationFrame(update);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  counters.forEach((c) => observer.observe(c));
+});
+</script>
+
+<!-- ================= INDUSTRIES WE SERVE ================= -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<section id="industries" class="w-full bg-[#080C1F] text-white py-10 px-4 sm:px-6 font-[Poppins]">
+
+  <!-- Section Title -->
+  <h2 class="text-center text-3xl md:text-4xl font-semibold mb-12">
+    <span class="bg-gradient-to-r from-[#B14EFF] to-[#3BC2FF] bg-clip-text text-transparent">
+      Industries We Serve
+    </span>
+  </h2>
+
+  <!-- Swiper Container -->
+  <div class="swiper industriesSwiper max-w-[1400px] mx-auto relative">
+
+    <!-- Navigation Buttons -->
+    <button class="swiper-button-prev" aria-label="Previous slide"></button>
+    <button class="swiper-button-next" aria-label="Next slide"></button>
+
+    <div class="swiper-wrapper">
+
+      <!-- ===================== ITEM TEMPLATE ===================== -->
+      <!-- Only change image, title, description, and link -->
+
+      <!-- OIL & GAS -->
+      <div class="swiper-slide">
+        <a href="industries/oil-gas.html" class="industry-card" style="--img:url('assets/oil-and-gas.webp')">
+          <h3>Oil & Gas</h3>
+          <p>Improve safety and operational training.</p>
+          <button class="learn-more-btn">Learn More</button>
+        </a>
+      </div>
+
+      <!-- ENERGY -->
+      <div class="swiper-slide">
+        <a href="industries/energy.html" class="industry-card" style="--img:url('assets/indust/energy5.webp')">
+          <h3>Energy Industry</h3>
+          <p>Advanced VR training for power & electrical sectors.</p>
+          <button class="learn-more-btn">Learn More</button>
+        </a>
+      </div>
+
+      <!-- AVIATION -->
+      <div class="swiper-slide">
+        <a href="industries/aviation.html" class="industry-card" style="--img:url('assets/indust/avi1.webp')">
+          <h3>Aviation Industry</h3>
+          <p>Immersive flight and operational simulations.</p>
+          <button class="learn-more-btn">Learn More</button>
+        </a>
+      </div>
+
+      <!-- DEFENCE -->
+      <div class="swiper-slide">
+        <a href="industries/defence.html" class="industry-card" style="--img:url('assets/indust/defence2.webp')">
+          <h3>Defence Industry</h3>
+          <p>VR-powered military training.</p>
+          <button class="learn-more-btn">Learn More</button>
+        </a>
+      </div>
+
+      <!-- AUTOMOTIVE -->
+      <div class="swiper-slide">
+        <a href="industries/automotive.html" class="industry-card" style="--img:url('assets/indust/auto3.webp')">
+          <h3>Automotive Industry</h3>
+          <p>Immersive factory training modules.</p>
+          <button class="learn-more-btn">Learn More</button>
+        </a>
+      </div>
+
+      <!-- TOURISM -->
+      <div class="swiper-slide">
+        <a href="industries/tourism.html" class="industry-card" style="--img:url('assets/indust/tou3.webp')">
+          <h3>Tourism & Hospitality</h3>
+          <p>Real-time VR skill development.</p>
+          <button class="learn-more-btn">Learn More</button>
+        </a>
+      </div>
+
+      <!-- MEDICAL -->
+      <div class="swiper-slide">
+        <a href="industries/medical.html" class="industry-card" style="--img:url('assets/indust/med2.webp')">
+          <h3>Medical & Healthcare</h3>
+          <p>Boost precision & medical skills.</p>
+          <button class="learn-more-btn">Learn More</button>
+        </a>
+      </div>
+
+      <!-- HERITAGE -->
+      <div class="swiper-slide">
+        <a href="industries/heritage.html" class="industry-card" style="--img:url('assets/indust/culture1.webp')">
+          <h3>Cultural Heritage</h3>
+          <p>Preserve history through immersive VR.</p>
+          <button class="learn-more-btn">Learn More</button>
+        </a>
+      </div>
+
+      <!-- MUSEUM -->
+      <div class="swiper-slide">
+        <a href="industries/museum.html" class="industry-card" style="--img:url('assets/indust/meu2.webp')">
+          <h3>Museums & Exhibitions</h3>
+          <p>Interactive VR experiences.</p>
+          <button class="learn-more-btn">Learn More</button>
+        </a>
+      </div>
+
+      <!-- MANUFACTURING -->
+      <div class="swiper-slide">
+        <a href="industries/manufacturing.html" class="industry-card" style="--img:url('assets/indust/mf1.webp')">
+          <h3>Manufacturing Industry</h3>
+          <p>Digital training workflows.</p>
+          <button class="learn-more-btn">Learn More</button>
+        </a>
+      </div>
+
+      <!-- AGRICULTURE -->
+      <div class="swiper-slide">
+        <a href="industries/agri.html" class="industry-card" style="--img:url('assets/indust/agri2.webp')">
+          <h3>Agriculture </h3>
+          <p>VR farming skills & simulations.</p>
+          <button class="learn-more-btn">Learn More</button>
+        </a>
+      </div>
+      <!-- FACTORIES -->
+      <div class="swiper-slide">
+        <a href="industries/factories.html" class="industry-card" style="--img:url('assets/indust/fact2.webp')">
+          <h3>Factories & Industrial Training</h3>
+          <p>Building skilled, safe, and future-ready industrial workforces</p>
+          <button class="learn-more-btn">Learn More</button>
+        </a>
+      </div>
+
+      <!-- ARCHITECTURE -->
+      <div class="swiper-slide">
+        <a href="industries/marketing.html" class="industry-card" style="--img:url('assets/indust/mk3.webp')">
+          <h3>Marketing, Architecture & Civil Engineering</h3>
+          <p>Hyper-realistic VR modeling.</p>
+          <button class="learn-more-btn">Learn More</button>
+        </a>
+      </div>
+
+      <!-- HIGHER EDUCATION -->
+      <div class="swiper-slide">
+        <a href="industries/edi.html" class="industry-card" style="--img:url('assets/indust/hedu3.webp')">
+          <h3>Higher Education (VR Lab Setup)</h3>
+          <p>Transforming campuses into immersive digital spaces.</p>
+          <button class="learn-more-btn">Learn More</button>
+        </a>
+      </div>
+
+      <!-- K12 -->
+      <div class="swiper-slide">
+        <a href="industries/k12.html" class="industry-card" style="--img:url('assets/indust/k12-2.webp')">
+          <h3>K-12 Content Development</h3>
+          <p>Engaging digital learning for school students.</p>
+          <button class="learn-more-btn">Learn More</button>
+        </a>
+      </div>
+
+      <!-- E-LEARNING -->
+      <div class="swiper-slide">
+        <a href="industries/e-learning.html" class="industry-card" style="--img:url('assets/indust/elearn1.webp')">
+          <h3>E-Learning Solutions</h3>
+          <p>Customized digital learning content.</p>
+          <button class="learn-more-btn">Learn More</button>
+        </a>
+      </div>
+
+      <!-- SOFT SKILL -->
+      <div class="swiper-slide">
+        <a href="industries/soft-skill.html" class="industry-card" style="--img:url('assets/indust/softskill2.webp')">
+          <h3>Soft Skills Training</h3>
+          <p>Enhance confidence & communication.</p>
+          <button class="learn-more-btn">Learn More</button>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="swiper-pagination mt-6"></div>
+  </div>
+</section>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper(".industriesSwiper", {
+    loop: true,
+    spaceBetween: 22,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    lazy: { loadPrevNext: true },
+
+    navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+    pagination: { el: ".swiper-pagination", clickable: true },
+
+    breakpoints: {
+      0: { slidesPerView: 1, spaceBetween: 12 },
+      480: { slidesPerView: "auto", spaceBetween: 16 },
+      768: { slidesPerView: "auto", spaceBetween: 20 },
+      1024: { slidesPerView: "auto", spaceBetween: 22 }
+    }
+  });
+</script>
+
+<style>
+  .swiper-slide { width: auto !important; }
+
+  .industry-card {
+    height: 350px; width: 230px;
+    border-radius: 28px; padding: 20px;
+    position: relative;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    overflow: hidden; text-decoration: none;
+    transition: 0.35s ease; z-index: 2;
+  }
+
+  .industry-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.1)),
+      var(--img) center/cover no-repeat;
+    border-radius: 28px;
+    transition: transform 0.35s ease;
+    z-index: 1;
+  }
+
+  .industry-card:hover { transform: translateY(-6px); box-shadow: 0 12px 35px rgba(0,0,0,0.4); }
+  .industry-card:hover::before { transform: scale(1.08); }
+
+  .industry-card * { position: relative; z-index: 3; }
+
+  .industry-card h3 { 
+    font-size: 18px; 
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 6px; 
+  }
+
+  .industry-card p { font-size: 13px; opacity: 0.85; }
+
+  .learn-more-btn {
+    margin-top: 12px; padding: 6px 14px;
+    font-size: 13px;
+    background: #B14EFF;
+    border-radius: 18px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    transition: 0.3s ease;
+  }
+
+  .learn-more-btn:hover { background: #9b3ae8; }
+
+  @media (max-width: 480px) {
+    .swiper-slide { width: 100% !important; display: flex; justify-content: center; }
+    .industry-card { width: 220px; height: 300px; padding: 16px; }
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(255,255,255,0.08); backdrop-filter: blur(6px);
+    top: 50%; transform: translateY(-50%);
+  }
+
+  .swiper-button-prev { left: 10px; }
+  .swiper-button-next { right: 10px; }
+  .swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 18px; color: #3BC2FF;
+  }
+</style>
+
+
+<!-- ========================= VIDEO SECTION ========================= -->
+<section id="videos" class="w-full py-14 px-4 bg-[#0B0F24] text-white font-[Poppins]">
+
+  <!-- Heading -->
+  <h2 class="text-center text-3xl md:text-4xl font-semibold mb-12">
+    <span class="bg-gradient-to-r from-[#B14EFF] to-[#3BC2FF] bg-clip-text text-transparent">
+      Our Latest Projects
+    </span>
+  </h2>
+
+  <!-- Video Grid -->
+  <div id="videoGrid" class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+
+    <!-- 1 -->
+    <div class="videoCard">
+      <div class="thumb">
+        <video preload="metadata" controls playsinline
+               loading="lazy"
+               controlsList="nodownload noplaybackrate"
+               oncontextmenu="return false;">
+          <source src="assets/vid1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="infoBox">
+        <h3>CG Semiconductor Industry Virtual Tour</h3>
+        <div class="line"></div>
+        <p>Step inside a high-tech semiconductor plant and explore each stage of chip fabrication in a realistic VR walkthrough.</p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="videoCard">
+      <div class="thumb">
+        <video preload="metadata" controls playsinline 
+               loading="lazy"
+               controlsList="nodownload noplaybackrate"
+               oncontextmenu="return false;">
+          <source src="assets/vidagri.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="infoBox">
+        <h3>Agriculture – History & Plant Pathology VR Lab</h3>
+        <div class="line"></div>
+        <p>Walk through the evolution of agriculture and explore a virtual plant pathology lab with interactive instruments.</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="videoCard">
+      <div class="thumb">
+        <video preload="metadata" controls playsinline 
+               loading="lazy"
+               controlsList="nodownload noplaybackrate"
+               oncontextmenu="return false;">
+          <source src="assets/vid3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="infoBox">
+        <h3>Agriculture – Hydroponics Process in VR</h3>
+        <div class="line"></div>
+        <p>Walk through hydroponic farming technology with 3D interactive VR environment.</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="videoCard extraVideo hidden">
+      <div class="thumb">
+        <video preload="metadata" controls playsinline 
+               loading="lazy"
+               controlsList="nodownload noplaybackrate"
+               oncontextmenu="return false;">
+          <source src="assets/vidharward.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="infoBox">
+        <h3>Harvard Technology – Centrifugal Pump Assembly & Disassembly</h3>
+        <div class="line"></div>
+        <p>Explore VR-based centrifugal pump assembly & disassembly for mechanical training.</p>
+      </div>
+    </div>
+
+    <!-- 5 (image only) -->
+    <div class="videoCard extraVideo hidden">
+      <div class="thumb">
+        <img src="assets/vid5.jpg" loading="lazy" alt="">
+      </div>
+      <div class="infoBox">
+        <h3>RTO Interactive Books & Driving Simulator</h3>
+        <div class="line"></div>
+        <p>Drive through city & highway roads in VR with complete traffic rule training.</p>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="videoCard extraVideo hidden">
+      <div class="thumb">
+        <video preload="metadata" controls playsinline 
+               loading="lazy"
+               controlsList="nodownload noplaybackrate"
+               oncontextmenu="return false;">
+          <source src="assets/vidcnc.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="infoBox">
+        <h3>CNC Machine Assembly & Mechanism</h3>
+        <div class="line"></div>
+        <p>Virtual CNC machine with internal components and real motion simulation.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BUTTON -->
+  <div class="text-center mt-10">
+    <button id="toggleBtn" onclick="toggleVideos()" class="px-8 py-3 bg-gradient-to-r from-[#8B5CF6] to-[#3BC2FF] hover:opacity-90 rounded-lg font-semibold transition duration-300">
+      View More
+    </button>
+  </div>
+
+</section>
+
+<!-- SCRIPT -->
+<script>
+function toggleVideos() {
+  const extraVideos = document.querySelectorAll(".extraVideo");
+  const btn = document.getElementById("toggleBtn");
+  const section = document.getElementById("videos");
+
+  const hidden = extraVideos[0].classList.contains("hidden");
+
+  if (hidden) {
+    extraVideos.forEach(v => v.classList.remove("hidden"));
+    btn.innerText = "View Less";
+  } else {
+    extraVideos.forEach(v => v.classList.add("hidden"));
+    btn.innerText = "View More";
+
+    setTimeout(() => {
+      const pos = section.offsetTop - 120;
+      window.scrollTo({ top: pos, behavior: "smooth" });
+    }, 50);
+  }
+}
+</script>
+
+<style>
+.videoCard {
+  background: #1a1f35;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: 0.35s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+}
+.videoCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(59,194,255,0.35);
+}
+
+.thumb {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+
+.thumb video,
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.infoBox {
+  background: #ffffff;
+  padding: 18px;
+  color: #000;
+}
+.infoBox h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+.line {
+  width: 100%;
+  height: 1px;
+  background: #d1d1d1;
+  margin: 6px 0 10px;
+}
+.infoBox p {
+  font-size: 13px;
+  opacity: .85;
+}
+</style>
+
+<!-- ====================== OUR EXPERTISE ====================== -->
+<section class="py-14 px-6 bg-[#0E0F1A]">
+
+  <!-- Title -->
+  <h2 class="text-center text-4xl font-bold mb-12
+      bg-gradient-to-r from-[#8B5CF6] to-[#3BC2FF] bg-clip-text text-transparent">
+      Our Expertise
+  </h2>
+
+  <!-- GRID -->
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+
+    <!-- Expertise Items -->
+    <div class="expertise-box">
+      <img src="assets/11.webp" loading="lazy" class="expertise-img" alt="AR content development icon">
+      <p class="expertise-text">AR Content<br>Development</p>
+    </div>
+
+    <div class="expertise-box">
+      <img src="assets/12.webp" loading="lazy" class="expertise-img" alt="VR content development icon">
+      <p class="expertise-text">VR Content<br>Development</p>
+    </div>
+
+    <div class="expertise-box">
+      <img src="assets/13.webp" loading="lazy" class="expertise-img" alt="XR content development icon">
+      <p class="expertise-text">XR Content<br>Development</p>
+    </div>
+
+    <div class="expertise-box h-[220px]">
+      <img src="assets/14.webp" loading="lazy" class="expertise-img" alt="AR and VR development and certification courses icon">
+      <p class="expertise-text">AR/VR Developing &<br>Certification Courses</p>
+    </div>
+
+    <div class="expertise-box">
+      <img src="assets/15.webp" loading="lazy" class="expertise-img" alt="AR and VR lab setup icon">
+      <p class="expertise-text">AR/VR Lab<br>Setup</p>
+    </div>
+
+    <div class="expertise-box">
+      <img src="assets/16.webp" loading="lazy" class="expertise-img" alt="Digital twin icon">
+      <p class="expertise-text">Digital<br>Twin</p>
+    </div>
+
+    <div class="expertise-box">
+      <img src="assets/17.webp" loading="lazy" class="expertise-img" alt="AR and VR training icon">
+      <p class="expertise-text">AR/VR<br>Training</p>
+    </div>
+
+    <div class="expertise-box">
+      <img src="assets/18.webp" loading="lazy" class="expertise-img" alt="3D content development icon">
+      <p class="expertise-text">3D Content<br>Development</p>
+    </div>
+
+    <div class="expertise-box">
+      <img src="assets/19.webp" loading="lazy" class="expertise-img" alt="Hologram display icon">
+      <p class="expertise-text">Hologram</p>
+    </div>
+
+    <div class="expertise-box">
+      <img src="assets/20.webp" loading="lazy" class="expertise-img" alt="XR software development icon">
+      <p class="expertise-text">XR Software<br>Development</p>
+    </div>
+
+    <div class="expertise-box">
+      <img src="assets/21.webp" loading="lazy" class="expertise-img" alt="Projection mapping icon">
+      <p class="expertise-text">Projection<br>Mapping</p>
+    </div>
+
+    <div class="expertise-box">
+      <img src="assets/22.webp" loading="lazy" class="expertise-img" alt="360 degree video icon">
+      <p class="expertise-text">360°<br>Video</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CSS -->
+<style>
+.expertise-box {
+  width: 100%;
+  height: 200px;
+  padding: 18px;
+  border-radius: 20px;
+  background: 
+      linear-gradient(#0E0F1A, #0E0F1A) padding-box,
+      linear-gradient(to bottom right, #8B5CF6, #3BC2FF) border-box;
+  border: 2px solid transparent;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.expertise-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(139, 92, 246, 0.35);
+}
+
+/* Image */
+.expertise-img {
+  height: 65px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 640px) {
+  .expertise-img { height: 80px; }
+}
+@media (min-width: 768px) {
+  .expertise-img { height: 95px; }
+}
+
+/* Text */
+.expertise-text {
+  color: #fff;
+  font-size: 1.1rem;
+  text-align: center;
+  line-height: 1.2;
+}
+</style>
+
+<section class="bg-[#071226] py-16">
+
+  <!-- Title -->
+  <div class="text-center mb-12">
+    <h2 class="text-4xl font-bold bg-gradient-to-r from-[#D946EF] to-[#3BC2FF] bg-clip-text text-transparent">
+      Multi Device XR Development
+    </h2>
+  </div>
+
+  <!-- GRID -->
+  <div class="max-w-7xl mx-auto px-4 
+              grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+
+    <!-- CARD TEMPLATE (All cards updated same way) -->
+    <!-- CARD 1 -->
+    <div class="flex flex-col items-center">
+      <div class="relative group rounded-lg overflow-hidden h-36 w-full">
+        <img src="assets/31.webp" loading="lazy" alt="Apple Vision Pro Development"
+             class="w-full h-full object-cover opacity-90 
+                    group-hover:scale-105 transition-transform duration-500">
+        
+        <!-- Stronger overlay -->
+        <div class="absolute inset-0 bg-black/45 
+                    group-hover:bg-black/50 transition duration-300"></div>
+      </div>
+      <p class="mt-3 text-white text-center text-sm font-semibold">
+        Apple Vision Pro<br>Software Development
+      </p>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="flex flex-col items-center">
+      <div class="relative group rounded-lg overflow-hidden h-36 w-full">
+        <img src="assets/32.webp" loading="lazy" alt="Android XR Development"
+             class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-black/45 group-hover:bg-black/50 transition duration-300"></div>
+      </div>
+      <p class="mt-3 text-white text-center text-sm font-semibold">
+        Android XR<br>Development
+      </p>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="flex flex-col items-center">
+      <div class="relative group rounded-lg overflow-hidden h-36 w-full">
+        <img src="assets/33.webp" loading="lazy" alt="Meta XR Development"
+             class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-black/45 group-hover:bg-black/50 transition duration-300"></div>
+      </div>
+      <p class="mt-3 text-white text-center text-sm font-semibold">
+        Meta XR<br>Development
+      </p>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="flex flex-col items-center">
+      <div class="relative group rounded-lg overflow-hidden h-36 w-full">
+        <img src="assets/34.webp" loading="lazy" alt="PICO XR Development"
+             class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-black/45 group-hover:bg-black/50 transition duration-300"></div>
+      </div>
+      <p class="mt-3 text-white text-center text-sm font-semibold">
+        PICO XR<br>Development
+      </p>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="flex flex-col items-center">
+      <div class="relative group rounded-lg overflow-hidden h-36 w-full">
+        <img src="assets/35.webp" loading="lazy" alt="Microsoft Hololens Development"
+             class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-black/45 group-hover:bg-black/50 transition duration-300"></div>
+      </div>
+      <p class="mt-3 text-white text-center text-sm font-semibold">
+        Microsoft Hololens
+      </p>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="flex flex-col items-center">
+      <div class="relative group rounded-lg overflow-hidden h-36 w-full">
+        <img src="assets/36.webp" loading="lazy" alt="VARJO Development"
+             class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-black/45 group-hover:bg-black/50 transition duration-300"></div>
+      </div>
+      <p class="mt-3 text-white text-center text-sm font-semibold">
+        VARJO Development
+      </p>
+    </div>
+
+    <!-- CARD 7 -->
+    <div class="flex flex-col items-center">
+      <div class="relative group rounded-lg overflow-hidden h-36 w-full">
+        <img src="assets/39.webp" loading="lazy" alt="Unity XR Development"
+             class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-black/45 group-hover:bg-black/50 transition duration-300"></div>
+      </div>
+      <p class="mt-3 text-white text-center text-sm font-semibold">
+        Unity XR
+      </p>
+    </div>
+
+    <!-- CARD 8 -->
+    <div class="flex flex-col items-center">
+      <div class="relative group rounded-lg overflow-hidden h-36 w-full">
+        <img src="assets/38.webp" loading="lazy" alt="Unreal Engine Development"
+             class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-black/45 group-hover:bg-black/50 transition duration-300"></div>
+      </div>
+      <p class="mt-3 text-white text-center text-sm font-semibold">
+        Unreal Engine
+      </p>
+    </div>
+
+    <!-- CARD 9 -->
+    <div class="flex flex-col items-center">
+      <div class="relative group rounded-lg overflow-hidden h-36 w-full">
+        <img src="assets/37.webp" loading="lazy" alt="Meta Developer Hub"
+             class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-black/45 group-hover:bg-black/50 transition duration-300"></div>
+      </div>
+      <p class="mt-3 text-white text-center text-sm font-semibold">
+        Meta Developer Hub
+      </p>
+    </div>
+
+    <!-- CARD 10 -->
+    <div class="flex flex-col items-center">
+      <div class="relative group rounded-lg overflow-hidden h-36 w-full">
+        <img src="assets/40.webp" loading="lazy" alt="HTC Vive Development"
+             class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+        <div class="absolute inset-0 bg-black/45 group-hover:bg-black/50 transition duration-300"></div>
+      </div>
+      <p class="mt-3 text-white text-center text-sm font-semibold">
+        HTC Vive
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================= TESTIMONIALS SECTION ======================= -->
+<section class="bg-[#071226] py-14">
+
+  <!-- Title -->
+  <div class="max-w-7xl mx-auto px-4 text-center mb-8">
+    <h2 class="text-4xl font-bold bg-gradient-to-r from-[#D946EF] to-[#3BC2FF] bg-clip-text text-transparent">
+      Client Testimonials
+    </h2>
+    <p class="text-gray-300 mt-3">What partners say after piloting our solutions.</p>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 relative">
+
+    <!-- Slider Window -->
+    <div class="overflow-hidden rounded-2xl">
+      <div id="testStrip" class="flex transition-transform duration-700 ease-out">
+
+        <!-- Slide 1 -->
+        <div class="min-w-full p-4">
+          <div class="relative bg-white/10 rounded-2xl p-6 border border-white/15 backdrop-blur-lg shadow-md overflow-hidden">
+            <div class="absolute right-0 top-0 h-full w-24 sm:w-28 bg-gradient-to-b from-[#8B5CF6]/30 to-[#3BC2FF]/30 rounded-l-full pointer-events-none"></div>
+
+            <p class="relative z-10 italic text-gray-100 text-sm sm:text-base leading-relaxed">
+              "The pilot reduced training time by 45% and improved team coordination — the simulation was remarkably realistic."
+            </p>
+
+            <div class="relative z-10 mt-4 flex items-center gap-4">
+              <img src="assets/Mandar-Deshpande.png" loading="lazy"
+                   class="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-white/20">
+              <div>
+                <div class="font-semibold text-white text-base sm:text-lg">Dr. Mandar Deshpande</div>
+                <div class="text-sm text-gray-300">Chief Medical Officer, Regional Hospital</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="min-w-full p-4">
+          <div class="relative bg-white/10 rounded-2xl p-6 border border-white/15 backdrop-blur-lg shadow-md overflow-hidden">
+            <div class="absolute right-0 top-0 h-full w-24 sm:w-28 bg-gradient-to-b from-[#8B5CF6]/30 to-[#3BC2FF]/30 rounded-l-full pointer-events-none"></div>
+
+            <p class="relative z-10 italic text-gray-100 text-sm sm:text-base leading-relaxed">
+              "Student outcomes improved and faculty found the analytics invaluable for assessment."
+            </p>
+
+            <div class="relative z-10 mt-4 flex items-center gap-4">
+                                            <img src="assets/apurva.webp" loading="lazy"
+
+                   class="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-white/20">
+              <div>
+                <div class="font-semibold text-white text-base sm:text-lg">Prof. Apurva Kadam</div>
+                <div class="text-sm text-gray-300">Head of Nursing, City University</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="min-w-full p-4">
+          <div class="relative bg-white/10 rounded-2xl p-6 border border-white/15 backdrop-blur-lg shadow-md overflow-hidden">
+            <div class="absolute right-0 top-0 h-full w-24 sm:w-28 bg-gradient-to-b from-[#8B5CF6]/30 to-[#3BC2FF]/30 rounded-l-full pointer-events-none"></div>
+
+            <p class="relative z-10 italic text-gray-100 text-sm sm:text-base leading-relaxed">
+              "Their VR training reduced equipment downtime and improved field safety drills across our sites."
+            </p>
+
+            <div class="relative z-10 mt-4 flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=200&q=80" loading="lazy"
+                   class="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border-2 border-white/20">
+              <div>
+                <div class="font-semibold text-white text-base sm:text-lg">Aniket Sharma</div>
+                <div class="text-sm text-gray-300">Training Lead, EnergyCorp</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="flex items-center justify-center gap-3 mt-6">
+      <button id="prevTest" class="w-10 h-10 flex items-center justify-center text-white text-2xl rounded-full bg-white/10 backdrop-blur-md hover:bg-white/25 transition">‹</button>
+      <button id="nextTest" class="w-10 h-10 flex items-center justify-center text-white text-2xl rounded-full bg-white/10 backdrop-blur-md hover:bg-white/25 transition">›</button>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  (function () {
+    const strip = document.getElementById("testStrip");
+    const total = strip.children.length;
+    let index = 0;
+
+    const prev = document.getElementById("prevTest");
+    const next = document.getElementById("nextTest");
+
+    function move(i) {
+      index = (i + total) % total;
+      strip.style.transform = `translateX(${-index * 100}%)`;
+    }
+
+    prev.onclick = () => move(index - 1);
+    next.onclick = () => move(index + 1);
+
+    let auto = setInterval(() => move(index + 1), 7000);
+
+    [prev, next].forEach(btn => {
+      btn.onmouseenter = () => clearInterval(auto);
+      btn.onmouseleave = () => (auto = setInterval(() => move(index + 1), 7000));
+    });
+
+    move(0);
+  })();
+</script>
+<!-- ================= BOOK DEMO CALL-TO-ACTION ================= -->
+<section class="w-full bg-[#0C1A4B] py-20">
+  <div class="max-w-4xl mx-auto text-center px-6">
+
+    <h2 class="text-2xl md:text-4xl font-semibold text-white mb-10 leading-snug">
+      Are you ready to bring 
+       Studily XR
+      
+      to your institution?
+    </h2>
+
+    <a href="book-demo.html">
+      <button class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold 
+                     px-10 py-4 rounded-full text-lg transition duration-300 
+                     shadow-[0_0_20px_rgba(255,200,0,0.4)] hover:shadow-[0_0_25px_rgba(255,200,0,0.6)]">
+        Book your demo
+      </button>
+    </a>
+
+  </div>
+</section>
+<!-- ================= FOOTER ================= -->
+<footer class="w-full bg-[#080D23] border-t border-white/10 pt-14 pb-10 px-6 md:px-12 lg:px-20 text-white">
+
+  <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center md:text-left">
+
+    <!-- LOGO + ABOUT -->
+    <div>
+      <h2 class="text-3xl font-bold bg-gradient-to-r from-[#8B5CF6] to-[#3BC2FF] text-transparent bg-clip-text">
+        STUDILY
+      </h2>
+      <p class="text-gray-300 mt-4 leading-relaxed">
+        Most affordable AR/VR service providers for educational & industrial solutions.
+      </p>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div>
+      <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+      <ul class="space-y-2 text-gray-300">
+        <li><a href="#" class="hover:text-[#8B5CF6] transition-colors">Home</a></li>
+        <li><a href="#" class="hover:text-[#8B5CF6] transition-colors">About</a></li>
+        <li><a href="#" class="hover:text-[#8B5CF6] transition-colors">Services</a></li>
+        <li><a href="#" class="hover:text-[#8B5CF6] transition-colors">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div>
+      <h3 class="text-lg font-semibold mb-4">Contact</h3>
+      <ul class="space-y-2 text-gray-300 text-sm sm:text-base">
+        <li>Email: <a href="mailto:studily.xyz@gmail.com" class="hover:text-[#8B5CF6]">studily.xyz@gmail.com</a></li>
+        <li>Phone: <a href="tel:+918805551122" class="hover:text-[#8B5CF6]">+91 8805551122</a></li>
+        <li>Location: 111, 1st floor, The Business Hub, Happy Colony, Kothrud, Pune - 411058, Maharashtra, India</li>
+      </ul>
+    </div>
+
+    <!-- SOCIAL ICONS -->
+    <div>
+      <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+      <div class="flex justify-center md:justify-start gap-4 items-center">
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/company/studily-learning-technologies-india/people/"
+           target="_blank" aria-label="LinkedIn"
+           class="w-10 h-10 flex items-center justify-center rounded-full 
+                  bg-gradient-to-r from-[#8B5CF6] to-[#3BC2FF] 
+                  transition-transform duration-300 hover:scale-110">
+          <img src="assets/linkedin-white-icon-12.webp" loading="lazy" class="w-7 h-8" alt="LinkedIn">
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/studily_learning/" 
+           target="_blank" aria-label="Instagram"
+           class="w-10 h-10 flex items-center justify-center rounded-full 
+                  bg-gradient-to-r from-[#8B5CF6] to-[#3BC2FF] 
+                  transition-transform duration-300 hover:scale-110">
+          <img src="assets/insta.webp" loading="lazy" class="w-5 h-5" alt="Instagram">
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/profile.php?id=61584518516245" 
+           target="_blank" aria-label="Facebook"
+           class="w-10 h-10 flex items-center justify-center rounded-full 
+                  bg-gradient-to-r from-[#8B5CF6] to-[#3BC2FF] 
+                  transition-transform duration-300 hover:scale-110">
+          <img src="assets/face.webp" loading="lazy" class="w-5 h-5" alt="Facebook">
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="text-center text-gray-300 mt-10 text-sm sm:text-base">
+    © 2025 STUDILY. All Rights Reserved.
+  </div>
+
+</footer>
+
+<!-- ================= END FOOTER ================= -->
+
+
+ <script>
+/* ================================
+   NAVBAR SCROLL BEHAVIOR
+================================ */
+const header = document.getElementById('siteHeader');
+
+function handleNavScroll() {
+  if (window.scrollY > 40) {
+    header.classList.add('nav-solid');   // add glass background on scroll
+  } else {
+    header.classList.remove('nav-solid');
+  }
+}
+
+window.addEventListener('scroll', handleNavScroll);
+handleNavScroll(); // run on load
+
+
+
+/* ================================
+   HORIZONTAL CAROUSEL LOGIC
+================================ */
+const carousel = document.getElementById('carousel');
+const leftBtn = document.getElementById('carLeft');
+const rightBtn = document.getElementById('carRight');
+const dotsContainer = document.getElementById('dots');
+
+
+/* Build dots dynamically */
+function buildDots() {
+  if (!carousel || !dotsContainer) return;
+
+  dotsContainer.innerHTML = '';
+  const cards = carousel.querySelectorAll('.snap-start');
+
+  cards.forEach((card, index) => {
+    const dot = document.createElement('button');
+    dot.className = 'w-3 h-3 rounded-full bg-white/30';
+
+    dot.addEventListener('click', () => {
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      updateActiveDot();
+    });
+
+    dotsContainer.appendChild(dot);
+  });
+
+  updateActiveDot();
+}
+
+
+/* Update active dot based on card center */
+function updateActiveDot() {
+  if (!carousel || !dotsContainer) return;
+
+  const dots = dotsContainer.children;
+  const cards = [...carousel.querySelectorAll('.snap-start')];
+
+  if (!dots.length || !cards.length) return;
+
+  let activeIndex = 0;
+  let minDiff = Infinity;
+
+  cards.forEach((card, idx) => {
+    const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+    const viewCenter = carousel.scrollLeft + carousel.clientWidth / 2;
+    const diff = Math.abs(cardCenter - viewCenter);
+
+    if (diff < minDiff) {
+      minDiff = diff;
+      activeIndex = idx;
+    }
+  });
+
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].className =
+      'w-3 h-3 rounded-full ' + (i === activeIndex ? 'dot-active' : 'bg-white/30');
+  }
+}
+
+
+/* Arrow Buttons */
+leftBtn?.addEventListener('click', () => {
+  carousel.scrollBy({ left: -300, behavior: 'smooth' });
+});
+
+rightBtn?.addEventListener('click', () => {
+  carousel.scrollBy({ left: 300, behavior: 'smooth' });
+});
+
+
+/* Update dots on scroll */
+carousel?.addEventListener('scroll', updateActiveDot);
+
+
+/* Build initial dots */
+buildDots();
+
+
+/* Show/hide arrows on mobile */
+function toggleArrows() {
+  if (!leftBtn || !rightBtn) return;
+
+  if (window.innerWidth >= 768) {
+    leftBtn.classList.remove('hidden');
+    rightBtn.classList.remove('hidden');
+  } else {
+    leftBtn.classList.add('hidden');
+    rightBtn.classList.add('hidden');
+  }
+}
+
+toggleArrows();
+
+
+/* Recalculate on window resize */
+window.addEventListener('resize', () => {
+  toggleArrows();
+  buildDots();   // rebuild dots for correct card count/dimensions
+});
+
+
+
+/* ================================
+   SOCIAL BAR SHOW/HIDE ON SCROLL
+================================ */
+const social = document.querySelector('.social-stick');
+const firstSection = document.getElementById('heroSection');  // must exist
+
+window.addEventListener('scroll', () => {
+  const bottom = firstSection.offsetTop + firstSection.offsetHeight;
+
+  if (window.scrollY > bottom - 200) {
+    social.classList.add('social-hidden');   // hide stickbar
+  } else {
+    social.classList.remove('social-hidden'); // show stickbar
+  }
+});
+// Select all sections, images, and elements with class .animate-up
+const revealElements = document.querySelectorAll('section, img, .animate-up');
+
+function revealOnScroll() {
+  const windowHeight = window.innerHeight;
+
+  revealElements.forEach(el => {
+    const elementTop = el.getBoundingClientRect().top;
+    const elementBottom = el.getBoundingClientRect().bottom;
+
+    if (elementTop < windowHeight * 0.85 && elementBottom > 0) {
+      el.classList.add('visible');   // add animation
+    } else {
+      el.classList.remove('visible'); // remove to repeat effect
+    }
+  });
+}
+
+// Trigger on scroll and on page load
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+
+</script>
+</body>
+</html>
